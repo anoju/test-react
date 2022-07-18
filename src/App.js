@@ -2,22 +2,22 @@ import logo from './logo.svg';
 import './App.css';
 
 function App() {
+  const helloTxt = '안녕하십니까?';
+  const logoClass = 'logo-txt';
+  const setStyle = {color:'blue',fontSize: '30px'}
+  function getNum(){
+    return 100;
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="black-nav">
+        <div className={ logoClass}>개발 blog</div>
+      </div>
+      <h4 style={setStyle}> { helloTxt } </h4>
+      <h4> { getNum() } </h4>
+      <div style={{textAlign:'center'}}>
+        <img src={ logo } alt=""  style={{'max-width':'50%'}} />
+      </div>
     </div>
   );
 }
