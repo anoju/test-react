@@ -3,7 +3,7 @@ import Header from './components/Header';
 import Navi from './components/Navi';
 import Contents from './components/Contents';
 import Footer from './components/Footer';
-import './App.css';
+import './App.scss';
 
 class App extends Component {
   constructor(props){

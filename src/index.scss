@@ -27,27 +27,30 @@ h1 {
   padding: 10px 20px;
   display:flex;
   align-items: center;
+  img{
+    width: 60px;
+  }
+  sub{
+    margin-left: auto;
+  }
 }
-.header img{
-  width: 60px;
-}
-.header sub{
-  margin-left: auto;
-}
-.nav ul{
-  padding: 10px 20px;
-  margin: 0;
-  display:flex;
-  background:#ccc;
-}
-.nav ul li{
-  list-style:none;
-}
-.nav ul li + li{
-  margin-left: 15px;
+.nav{
+  ul{
+    padding: 10px 20px;
+    margin: 0;
+    display:flex;
+    background:#ccc;
+  }
+  li{
+    list-style:none;
+    + li{
+      margin-left: 15px;
+    }
+  }
 }
 .footer{
-  background:#ddd;
+  background:#000;
+  color: #fff;
   padding: 10px 20px;
 }
 .main{
