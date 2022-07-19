@@ -9,7 +9,7 @@ class App extends Component {
   constructor(props){
     super(props);
     this.state = {
-      mode: 'sub',
+      mode: 'home',
       home: {
         title: 'Home',
         desc: 'Hello, react!!'
@@ -18,10 +18,11 @@ class App extends Component {
         title: 'ANOJU!!',
         sub: '리액트 연습중'
       },
+      menuIdx : 0,
       menu: [
-        {id: 1, title:'HTML', desc:'HTML is for information', url:'/html'},
-        {id: 2, title:'CSS', desc:'CSS is for information', url:'/css'},
-        {id: 3, title:'JavaScript', desc:'JavaScript is for information', url:'/js'},
+        {title:'HTML', desc:'HTML is for information', url:'/html'},
+        {title:'CSS', desc:'CSS is for information', url:'/css'},
+        {title:'JavaScript', desc:'JavaScript is for information', url:'/js'},
       ]
     };
   }
@@ -32,20 +33,18 @@ class App extends Component {
       _title = this.state.home.title;
       _desc = this.state.home.desc;
     } else if(this.state.mode === 'sub') {
-      _title = this.state.menu[0].title;
-      _desc = this.state.menu[0].desc;
+      _title = this.state.menu[this.state.menuIdx].title;
+      _desc = this.state.menu[this.state.menuIdx].desc;
     }
     return (
       <div className="app">
-        {/* <Header title={this.state.header.title} sub={this.state.header.sub} /> */}
-        <header className="header">
-          <h1><a href="/" onClick={function(e){
+        <Header title={this.state.header.title} sub={this.state.header.sub} onChangePage={function(e){
             this.setState({mode: 'home'});
             e.preventDefault();
-          }.bind(this)}>{this.state.header.title}</a></h1>
-          <sub>{this.state.header.sub}</sub>
-        </header>
-        <Navi data={this.state.menu} />
+          }.bind(this)} />
+        <Navi data={this.state.menu} onChangePage={function(index){
+          this.setState({mode: 'sub', menuIdx: index});
+        }.bind(this)} />
         <Contents title={_title} desc={_desc} />
         <Footer />
       </div>
