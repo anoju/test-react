@@ -21,7 +21,7 @@ function App() {
     const num = likeNum + 1;
     likeNumChange(num);
   }
-  function clickEvt2(index){
+  function likeClick(index){
     const list = [...listItems];
     const num = list[index].like + 1;
     list[index].like = num;
@@ -63,19 +63,47 @@ function App() {
         <p> 3/17 발행</p>
       </div> */}
       {listItems.map((item, index) => (
-        <div className="list" key={index}>
-          <div>
-            <h3>{item.title}</h3>
-            <div><button onClick={() => clickEvt2(index)}>👍{item.like}</button></div>
-          </div>
-          <p>{item.date} 발행</p>
-        </div>
+        // <div className="list" key={index}>
+        //   <div>
+        //     <h3>{item.title}</h3>
+        //     <div><button onClick={() => likeClick(index)}>👍{item.like}</button></div>
+        //   </div>
+        //   <p>{item.date} 발행</p>
+        // </div>
+        <Item  key={index} title={item.title} like={item.like} date={item.data} index={index} click={likeClick} />
       ))}
-      <div className="btn">
+      <div className="btn-wrap">
         <button onClick={clickTxtChange}>텍스트 변경</button>
       </div>
+
+      <View />
     </div>
   );
+}
+
+function Item(props){
+  return (
+    <div className="list">
+      <div>
+        <h3>{props.title}</h3>
+        <div><button onClick={() => props.click(props.index)}>👍{props.like}</button></div>
+      </div>
+      <p>{props.date} 발행</p>
+    </div>
+  )
+}
+
+function View(){
+  return (
+    <>
+      <div className="view">
+        <h2>제목</h2>
+        <p>날짜</p>
+        <div>상세</div>
+      </div>
+      <div>12345</div>
+    </>
+  )
 }
 
 export default App;
