@@ -1,4 +1,4 @@
-import { Component } from 'react';
+import { Component } from "react";
 
 class Navi extends Component {
   render() {
@@ -15,16 +15,19 @@ class Navi extends Component {
           {
             // lists
           }
-          {
-            this.props.data.map((item, index) => (
-              <li key={index}>
-                <a href={item.url} onClick={function(e){
+          {this.props.data.map((item, index) => (
+            <li key={index}>
+              <a
+                href={item.url}
+                onClick={function (e) {
                   this.props.onChangePage(index);
                   e.preventDefault();
-                }.bind(this)}>{item.title}</a>
-              </li>
-            ))
-          }
+                }.bind(this)}
+              >
+                {item.title}
+              </a>
+            </li>
+          ))}
         </ul>
       </nav>
     );
