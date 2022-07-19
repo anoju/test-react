@@ -6,7 +6,10 @@ class Header extends Component {
     return (
       <header className="header">
         <img src={logo} alt="" />
-        <h1><a href="/" onClick={this.props.onChangePage}>{this.props.title}</a></h1>
+        <h1><a href="/" onClick={function(e){
+          this.props.onChangePage()
+          e.preventDefault();
+        }.bind(this)}>{this.props.title}</a></h1>
         <sub>{this.props.sub}</sub>
       </header>
     );

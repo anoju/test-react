@@ -18,10 +18,10 @@ class Navi extends Component {
           {
             this.props.data.map((item, index) => (
               <li key={index}>
-                <a href={item.url} onClick={(e) => {
+                <a href={item.url} onClick={function(e){
                   this.props.onChangePage(index);
                   e.preventDefault();
-                }}>{item.title}</a>
+                }.bind(this)}>{item.title}</a>
               </li>
             ))
           }

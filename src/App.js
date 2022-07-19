@@ -38,9 +38,8 @@ class App extends Component {
     }
     return (
       <div className="app">
-        <Header title={this.state.header.title} sub={this.state.header.sub} onChangePage={function(e){
+        <Header title={this.state.header.title} sub={this.state.header.sub} onChangePage={function(){
             this.setState({mode: 'home'});
-            e.preventDefault();
           }.bind(this)} />
         <Navi data={this.state.menu} onChangePage={function(index){
           this.setState({mode: 'sub', menuIdx: index});
