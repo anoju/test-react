@@ -1,0 +1,23 @@
+.list{
+  padding:15px 20px;
+}
+.list+.list{
+  border-top:1px solid #000;
+}
+.list h3{
+  margin: 0;
+}
+.list div{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.list button{
+  border:1px solid #f1f1f1;
+  padding:3px 5px;
+  border-radius: 3px;
+  background:none;
+}
+.list p{
+  margin: 0;
+}
