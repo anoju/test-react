@@ -11,49 +11,49 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } */
-body{
-  margin:0;
+body {
+  margin: 0;
 }
 h1 {
-  margin:0;
+  margin: 0;
 }
-.app{
+.app {
   min-height: 100vh;
-  display:flex;
+  display: flex;
   flex-direction: column;
 }
-.header{
-  background:#eee;
+.header {
+  background: #eee;
   padding: 10px 20px;
-  display:flex;
+  display: flex;
   align-items: center;
-  img{
+  img {
     width: 60px;
   }
-  sub{
+  sub {
     margin-left: auto;
   }
 }
-.nav{
-  ul{
+.nav {
+  ul {
     padding: 10px 20px;
     margin: 0;
-    display:flex;
-    background:#ccc;
+    display: flex;
+    background: #ccc;
   }
-  li{
-    list-style:none;
-    + li{
+  li {
+    list-style: none;
+    + li {
       margin-left: 15px;
     }
   }
 }
-.footer{
-  background:#000;
+.footer {
+  background: #000;
   color: #fff;
   padding: 10px 20px;
 }
-.main{
+.main {
   padding: 25px 20px;
   flex: 1 0 auto;
 }

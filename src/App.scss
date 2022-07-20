@@ -1,23 +1,23 @@
-.list{
-  padding:15px 20px;
-  h3{
+.list {
+  padding: 15px 20px;
+  h3 {
     margin: 0;
   }
-  div{
+  div {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  button{
-    border:1px solid #f1f1f1;
-    padding:3px 5px;
+  button {
+    border: 1px solid #f1f1f1;
+    padding: 3px 5px;
     border-radius: 3px;
-    background:none;
+    background: none;
   }
-  p{
+  p {
     margin: 0;
   }
-  +.list{
-    border-top:1px solid #000;
+  + .list {
+    border-top: 1px solid #000;
   }
 }
