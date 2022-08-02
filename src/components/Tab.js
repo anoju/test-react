@@ -1,6 +1,6 @@
 import { Component } from 'react';
 
-class Navi extends Component {
+class Tab extends Component {
   render() {
     // const lists = [];
     // const data = this.props.data;
@@ -10,7 +10,7 @@ class Navi extends Component {
     //   i += 1;
     // }
     return (
-      <nav className="nav">
+      <nav className="tab">
         <ul>
           {
             // lists
@@ -19,6 +19,7 @@ class Navi extends Component {
             <li key={index}>
               <a
                 href={item.url}
+                className={this.props.active === index ? 'active' : ''}
                 onClick={function (e) {
                   this.props.onChangePage(index);
                   e.preventDefault();
@@ -34,4 +35,4 @@ class Navi extends Component {
   }
 }
 
-export default Navi;
+export default Tab;

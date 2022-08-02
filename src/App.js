@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import Header from './components/Header';
-import Navi from './components/Navi';
+import Tab from './components/Tab';
 import Contents from './components/Contents';
 import Footer from './components/Footer';
 import './App.scss';
@@ -18,7 +18,7 @@ class App extends Component {
         title: 'ANOJU!!',
         sub: '리액트 연습중',
       },
-      menuIdx: 0,
+      menuIdx: '',
       menu: [
         { title: 'HTML', desc: 'HTML is for information', url: '/html' },
         { title: 'CSS', desc: 'CSS is for information', url: '/css' },
@@ -32,23 +32,24 @@ class App extends Component {
     if (this.state.mode === 'home') {
       _title = this.state.home.title;
       _desc = this.state.home.desc;
-    } else if (this.state.mode === 'sub') {
+    } else if (this.state.mode === 'tab') {
       _title = this.state.menu[this.state.menuIdx].title;
       _desc = this.state.menu[this.state.menuIdx].desc;
     }
     return (
-      <div className="app">
+      <div className="page">
         <Header
           title={this.state.header.title}
           sub={this.state.header.sub}
           onChangePage={function () {
-            this.setState({ mode: 'home' });
+            this.setState({ mode: 'home', menuIdx: '' });
           }.bind(this)}
         />
-        <Navi
+        <Tab
           data={this.state.menu}
+          active={this.state.menuIdx}
           onChangePage={function (index) {
-            this.setState({ mode: 'sub', menuIdx: index });
+            this.setState({ mode: 'tab', menuIdx: index });
           }.bind(this)}
         />
         <Contents title={_title} desc={_desc} />
