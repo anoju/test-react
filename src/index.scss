@@ -11,7 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 } */
+
+html {
+  font-size: 62.5%;
+}
 body {
+  font: normal 1.6rem/1.4 'Roboto', 'Noto Sans KR', 'Apple SD Gothic Neo', 'AppleSDGothicNeo', sans-serif;
   margin: 0;
   color: #666;
 }
@@ -20,6 +25,16 @@ a {
 }
 h1 {
   margin: 0;
+}
+input,
+textarea {
+  width: 100%;
+  border: 1px solid #ddd;
+  line-height: 2.8rem;
+  padding: 1rem;
+  font-size: 1.6rem;
+  font-family: inherit;
+  box-sizing: border-box;
 }
 .page {
   min-height: 100vh;
@@ -69,4 +84,14 @@ h1 {
 .main {
   padding: 25px 20px;
   flex: 1 0 auto;
+}
+.form {
+  border: 1px solid #f1f1f1;
+  padding: 1rem;
+  p {
+    margin: 0;
+    + p {
+      margin-top: 0.5rem;
+    }
+  }
 }

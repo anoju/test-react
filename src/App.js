@@ -1,7 +1,9 @@
 import { Component } from 'react';
 import Header from './components/Header';
 import Tab from './components/Tab';
-import Contents from './components/Contents';
+import Control from './components/Control';
+import ReadContents from './components/ReadContents';
+import CreateContent from './components/CreateContent';
 import Footer from './components/Footer';
 import './App.scss';
 
@@ -9,7 +11,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      mode: 'home',
+      mode: 'create',
       home: {
         title: 'Home',
         desc: 'Hello, react!!',
@@ -20,21 +22,39 @@ class App extends Component {
       },
       menuIdx: '',
       menu: [
-        { title: 'HTML', desc: 'HTML is for information', url: '/html' },
-        { title: 'CSS', desc: 'CSS is for information', url: '/css' },
-        { title: 'JavaScript', desc: 'JavaScript is for information', url: '/js' },
+        { title: 'HTML', desc: 'HTML is for information' },
+        { title: 'CSS', desc: 'CSS is for information' },
+        { title: 'JavaScript', desc: 'JavaScript is for information' },
       ],
     };
   }
   render() {
     let _title;
     let _desc;
+    let _contents;
     if (this.state.mode === 'home') {
       _title = this.state.home.title;
       _desc = this.state.home.desc;
+      _contents = <ReadContents title={_title} desc={_desc} />;
     } else if (this.state.mode === 'tab') {
       _title = this.state.menu[this.state.menuIdx].title;
       _desc = this.state.menu[this.state.menuIdx].desc;
+      _contents = <ReadContents title={_title} desc={_desc} />;
+    } else if (this.state.mode === 'create') {
+      _contents = (
+        <CreateContent
+          title="create"
+          onSubmit={function (_title, _desc) {
+            if (!_title || !_desc) return;
+            // this.setState({
+            //   menu: [...this.state.menu, { title: _title, desc: _desc }],
+            // });
+            this.setState({
+              menu: this.state.menu.concat({ title: _title, desc: _desc }),
+            });
+          }.bind(this)}
+        />
+      );
     }
     return (
       <div className="page">
@@ -52,7 +72,13 @@ class App extends Component {
             this.setState({ mode: 'tab', menuIdx: index });
           }.bind(this)}
         />
-        <Contents title={_title} desc={_desc} />
+        <Control
+          onChangeMode={function (_mode) {
+            this.setState({ mode: _mode });
+          }.bind(this)}
+        />
+
+        {_contents}
         <Footer />
       </div>
     );

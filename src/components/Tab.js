@@ -18,7 +18,7 @@ class Tab extends Component {
           {this.props.data.map((item, index) => (
             <li key={index}>
               <a
-                href={item.url}
+                href={'/' + item.title.toLowerCase()}
                 className={this.props.active === index ? 'active' : ''}
                 onClick={function (e) {
                   this.props.onChangePage(index);
